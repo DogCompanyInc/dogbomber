@@ -61,7 +61,7 @@ def main(page: Page):
         _color = [MY_COLOR, 'red', 'pink', 'WHITE', 'black', 'purple', 'indigo', 'blue', 'cyan', 'teal', 'green', 'lime', 'yellow', 'amber', 'orange', 'brown', 'bluegrey', 'grey']
         global color
         color = choice(_color)
-        banner.controls = [Text(spans=[TextSpan('INSIDE', TextStyle(size=95, foreground=Paint(color=color, stroke_width=9, stroke_join='round', style='stroke')))], font_family='Consolas'), Text(spans=[TextSpan('Dogbomber', TextStyle(size=95, color=color))], font_family='Consolas')]
+        banner.controls = [Text(spans=[TextSpan('DogBomber', TextStyle(size=95, foreground=Paint(color=color, stroke_width=9, stroke_join='round', style='stroke')))], font_family='Consolas'), Text(spans=[TextSpan('Dogbomber', TextStyle(size=95, color=color))], font_family='Consolas')]
         
         number.border_color=color
         number.cursor_color=color
@@ -189,7 +189,7 @@ def main(page: Page):
             information_window.open = False
             page.update()
 
-        information_window = AlertDialog(content=Text(f'''Сервисов - {len(urls("12345"))}\nRU - {sum(1 for i in urls("12345") if i["info"]["country"] == "RU")}   |   UZ - {sum(1 for i in urls("12345") if i["info"]["country"] == "UZ")}   |   ALL - {sum(1 for i in urls("12345") if i["info"]["country"] == "ALL")}\n\nФидбек Сервисов - {len(feedback_urls("12345"))}\nRU - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "RU")}   |   UZ - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "UZ")}   |   ALL - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "ALL")}\n\nВсего - {len(urls("12345")) + len(feedback_urls("12345"))}''', text_align='center', size=17, font_family='Consolas'), title=Text(f'''INSIDE V{VERSION}''', text_align='center', size=40, color=color, font_family='Consolas'), open=True, actions=[TextButton('ОКЕЙ', width=110, height=50, on_click=button, style=ButtonStyle(color=color))], actions_alignment='end')
+        information_window = AlertDialog(content=Text(f'''Сервисов - {len(urls("12345"))}\nRU - {sum(1 for i in urls("12345") if i["info"]["country"] == "RU")}   |   UZ - {sum(1 for i in urls("12345") if i["info"]["country"] == "UZ")}   |   ALL - {sum(1 for i in urls("12345") if i["info"]["country"] == "ALL")}\n\nФидбек Сервисов - {len(feedback_urls("12345"))}\nRU - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "RU")}   |   UZ - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "UZ")}   |   ALL - {sum(1 for i in feedback_urls("12345") if i["info"]["country"] == "ALL")}\n\nВсего - {len(urls("12345")) + len(feedback_urls("12345"))}''', text_align='center', size=17, font_family='Consolas'), title=Text(f'''DogBomber V{VERSION}''', text_align='center', size=40, color=color, font_family='Consolas'), open=True, actions=[TextButton('ОКЕЙ', width=110, height=50, on_click=button, style=ButtonStyle(color=color))], actions_alignment='end')
 
         page.dialog = information_window
         page.update()
